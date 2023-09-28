@@ -1,0 +1,41 @@
+<!-- <div class="author">
+  <h1 class="author__heading">Hi, I am Mohan.</h1>
+  <p class="author__body">Web developer and content creator.</p>
+</div>
+
+<img src="/img/hero-image.webp" alt="person looking out through window" class="hero-image" width="981" height="528"> -->
+
+<section class="articles">
+  <h2 class="articles__heading">Posts</h2>
+
+  <ul class="article-ul">
+    <% data.forEach(post => { %>
+      <li>
+        <a href="/post/<%= post._id %>">
+          <div class="card">
+            <div class="card__image">
+              <img src="/uploads/<%= post.image%>" alt="Card Image">
+            </div>
+            <div class="card__content">
+              <h1 class="card__title"><%- post.title %></h1>
+              <p class="card__description"><%- post.body.substring(25, 296) %></p>
+            </div>
+          </div>
+          
+
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+
+
+
+  <% if (nextPage !== null) { %>
+    <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+  <% } %>
+ 
+
+
+<script src="../public/js/filter.js"></script>
+
+</section>

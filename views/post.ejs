@@ -1,0 +1,50 @@
+<img src="/uploads/<%= data.image %>" class="hero-image" width="981" height="528">
+<h1><%= data.title %></h1>
+<article><%- data.body%></article>
+<article class="code"></article>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      Prism.highlightAll();
+    });
+
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Find all code blocks with copy buttons
+      const codeBlocks = document.querySelectorAll('.code-block');
+  
+      codeBlocks.forEach(function (codeBlock) {
+        const copyButton = codeBlock.querySelector('.copy-button');
+        const codeElement = codeBlock.querySelector('code');
+  
+        // Add click event listener to the copy button
+        copyButton.addEventListener('click', function () {
+          // Create a temporary textarea element to copy the code
+          const textarea = document.createElement('textarea');
+          textarea.value = codeElement.textContent;
+          document.body.appendChild(textarea);
+  
+          // Select and copy the code
+          textarea.select();
+          document.execCommand('copy');
+  
+          // Remove the temporary textarea
+          document.body.removeChild(textarea);
+  
+          // Change button text temporarily to indicate success
+          const originalButtonText = copyButton.textContent;
+          copyButton.textContent = 'Copied!';
+          setTimeout(function () {
+            copyButton.textContent = originalButtonText;
+          }, 1000);
+        });
+      });
+    });
+  </script>
+  
+  
