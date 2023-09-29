@@ -155,8 +155,8 @@ router.post('/add-post', upload.single('image'), authMiddleware, async (req, res
       title: req.body.title,
       body: req.body.body,
       // Store the image URL based on the uploaded file
-      // image: `/uploads/${uploadedImage.filename}`,
-        image: req.file.filename,
+      image: `/uploads/${uploadedImage.filename}`,
+       // image: req.file.filename,
     });
 
     await Post.create(newPost);
