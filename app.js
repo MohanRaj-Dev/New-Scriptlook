@@ -32,6 +32,7 @@ app.use(session({
 }));
 
 app.use(express.static('public'));
+app.use('/images', express.static('uploads'))
 // Templating Engine
 app.use(expressLayout);
 app.set('layout', './layouts/main');
